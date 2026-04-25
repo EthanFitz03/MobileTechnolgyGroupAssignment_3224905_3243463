@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "74724910338",
+    "project_id": "mobiletechgroupassignment2026",
+    "storage_bucket": "mobiletechgroupassignment2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74724910338:android:c0d79e5aea302f9c320e1b",
+        "android_client_info": {
+          "package_name": "com.example.mobiletechnolgygroupassignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkbYDLjpWFIXRvH0WSevT4rnn2s52S9z4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
