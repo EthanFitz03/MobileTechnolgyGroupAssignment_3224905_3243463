@@ -39,6 +39,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
 
     // Google ML Kit dependencies
     implementation("com.google.mlkit:barcode-scanning:17.2.0")

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/images_list_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List of Analysed Images"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:paddingBottom="12dp" />
+
+    <TextView
+        android:id="@+id/no_image_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No analysed images saved yet"
+        android:gravity="center"
+        android:padding="16dp"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/saved_item_list"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="1dp" />
+
+    <Button
+        android:id="@+id/btn_main_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="Add" />
+
+</LinearLayout>

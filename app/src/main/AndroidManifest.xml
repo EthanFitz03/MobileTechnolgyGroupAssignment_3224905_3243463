@@ -19,6 +19,9 @@
         android:theme="@style/Theme.MobileTechnolgyGroupAssignment"
         tools:targetApi="31">
         <activity
+            android:name=".SavedItemDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditResultActivity"
             android:exported="false" />
         <activity
@@ -35,9 +38,6 @@
             android:exported="false" />
         <activity
             android:name=".SavedListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SavedItemDetailActivity"
             android:exported="false" />
     </application>
 
