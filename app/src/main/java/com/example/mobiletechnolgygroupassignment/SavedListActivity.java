@@ -18,7 +18,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,7 @@ public class SavedListActivity extends AppCompatActivity {
     private ListAdapter adapter;
     private ArrayList<SavedItem> savedItems;
     private DatabaseReference dbRef;
+    private ChildEventListener childEventListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +68,12 @@ public class SavedListActivity extends AppCompatActivity {
             }
         });
 
-        LoadSavedItems();
+        updateEmptyState();
+        loadSavedItems();
     }
 
-    private void LoadSavedItems() {
-        dbRef.addChildEventListener(new ChildEventListener() {
+    private void loadSavedItems() {
+        childEventListener = dbRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String id = snapshot.getKey();
@@ -139,15 +140,23 @@ public class SavedListActivity extends AppCompatActivity {
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                // not required
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(SavedListActivity.this, "Data loading failed: " + error.getMessage(),
+                Toast.makeText(SavedListActivity.this,
+                        "Data load failed: " + error.getMessage(),
                         Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (childEventListener != null) {
+            dbRef.removeEventListener(childEventListener);
+        }
     }
 
     private void updateEmptyState() {
